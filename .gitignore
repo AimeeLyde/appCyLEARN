@@ -1,1 +1,3 @@
 /node_modules
+frontend/node_modules/.bin/acorn 2
+/frontend/node_modules
