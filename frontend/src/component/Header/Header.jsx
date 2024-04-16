@@ -1,11 +1,11 @@
 import {useEffect, useRef} from 'react'
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/logo-cylearn.png";
 import { NavLink, Link } from 'react-router-dom';
 import userImg from '../../assets/images/avatar-icon.png'
 import {BiMenu} from "react-icons/bi"
 const navLinks =[
   {
-    path:'/home',
+    path:'/accueil',
     display: 'Accueil'
   },
   {
@@ -63,8 +63,8 @@ const toggleMenu =()=> menuRef.current.classList.toggle('show__menu')
                 <li key={index}>
                   <NavLink to={link.path} className={navClass =>
                     navClass.isActive
-                    ? "text-primaryColor text-[16px] leading-7 font-[600]" 
-                    : "text-textColor text-[16px] leading-7 font-[500]"
+                    ? "text-primaryColor text-[14px] leading-7 font-[600]" 
+                    : "text-textColor text-[14px] leading-7 font-[500]"
                   }
                   >
                     {link.display}
@@ -77,14 +77,14 @@ const toggleMenu =()=> menuRef.current.classList.toggle('show__menu')
           <div className="flex items-center gap-4">
             <div className='hidden'>
               <Link to ="/">
-              <figure className='w-[35px] h-[35px] rounded-full cursor-pointer'>
+              <figure className='w-[25px] h-[25px] rounded-full cursor-pointer'>
                 <img src={userImg} ClassName="w-full rounded-full" alt="" />
               </figure>
               </Link>
             </div>
             <Link to ="/connexion">
-            <button className='bg-primaryColor py-2 px-6 text-white font-[600] h-[44px] flex items-center  
-            justify-center rounded-[50px]'>
+            <button className='bg-primaryColor py-2 px-6 text-white font-[600] h-[33px] flex items-center  
+            justify-center rounded-[40px]'>
                   Connexion
             </button>
             </Link>
