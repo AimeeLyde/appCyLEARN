@@ -66,7 +66,7 @@ const Home = () => {
               <p className="text-[16px] leading-7 text-textColor font-[400] mt-4 text-center">
                 Quisque sit amet sapien pellentesque, consectetur nisi et, porttitor diam.
               </p>
-              <Link to='/astuces' className='w-[44px] h-[44px] rounded-full border border-solid border-[#181A1E] mt-[30px] mx-auto 
+              <Link to='/bonnesPratiques' className='w-[44px] h-[44px] rounded-full border border-solid border-[#181A1E] mt-[30px] mx-auto 
               flex items-center justify-center group hover:bg-primaryColor hover:border-none '>
                 <BsArrowRight className="group-hover:text-white w-6 h-5"/>
               </Link>
@@ -132,7 +132,7 @@ const Home = () => {
           {/* feature content */}
           <div className="xl:w-[670px]">
             <h2 className='heading'>
-              Proposez <br/> un meilleur titre
+              Ne ratez <br/> aucune actualités 
             </h2>
             <p className='text__para'>
                     Suspendisse ex magna, maximus nec tincidunt nec, sagittis hendrerit dui. Donec quis enim ullamcorper, ullamcorper est nec, ornare nulla. 
@@ -145,7 +145,7 @@ const Home = () => {
                     maximus nec tincidunt nec, sagittis hendrerit dui. 
                 </p>
             <Link to="/">
-              <button className='btn'>Mettre un lien-Home</button>
+              <button className='btn'>Mettre un lien vers actualités</button>
             </Link>
           </div>
           {/* feature img */}

@@ -13,7 +13,7 @@ const navLinks =[
     display: 'Actualités'
   },
   {
-    path:'/glossary',
+    path:'/glossaire',
     display: 'Glossaire'
   },
   {
