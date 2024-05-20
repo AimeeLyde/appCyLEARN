@@ -12,6 +12,9 @@ const Register = () => {
     const handleInputChange = e=>{
       setFormData({... formData,[e.target.name]:e.target.value})
     }
+    const submitHandler = async event=>{
+      event.preventDefault()
+    }
   return (
    <section className='px-5 xl:px-0'>
     <div className='max-w-[1170px] mx-auto'>
@@ -27,7 +30,7 @@ const Register = () => {
             Créer <span className='text-primaryColor'>votre compte</span>
           </h3>
 
-          <form action="">
+          <form onSubmit={submitHandler}>
             <div className='mb-5'>
               <input 
               type="text" 
