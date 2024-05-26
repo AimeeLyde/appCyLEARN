@@ -40,12 +40,14 @@ const MyAccount = () => {
 
     <div className="md:col-span-2 md:px-[30px]">
       <div>
-        <button onClick={() => setTab('cours')} className='p-2 mr-5 px-5 rounded-md text-headingColor font-semibold text-[16px]
-        leading-7 border border-solid border-primaryColor'>
+        <button onClick={() => setTab('cours')} className={`${tab==='cours' && "bg-primaryColor text-white font-normal"}
+        p-2 mr-5 px-5 rounded-md text-headingColor font-semibold text-[16px]
+        leading-7 border border-solid border-primaryColor`}>
           Cours
         </button>
-        <button className='p-2 px-5 rounded-md text-headingColor font-semibold text-[16px]
-        leading-7 border border-solid border-primaryColor'>
+        <button onClick={() => setTab('quiz')} className={`${tab==='quiz' && "bg-primaryColor text-white font-normal"}
+        p-2 px-5 rounded-md text-headingColor font-semibold text-[16px]
+        leading-7 border border-solid border-primaryColor`}>
           Quiz
         </button>
       </div>
