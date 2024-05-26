@@ -1,19 +1,50 @@
 import React from 'react'
 import {useState} from 'react'
 import signupImg from '../assets/images/signup.gif';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { BASE_URL } from "../config";
+import { toast } from "react-toastify";
+import HashLoader from 'react-spinners/HashLoader'
+
+
 
 const Register = () => {
     const [formData, setFormData] = useState({
-      fullname: '',
+      name: '',
       email: "",
       password: "",
       })
     const handleInputChange = e=>{
       setFormData({... formData,[e.target.name]:e.target.value})
     }
+    const [loading, setLoading] =useState(false)
+    const navigate = useNavigate()
+
+
     const submitHandler = async event=>{
       event.preventDefault()
+      setLoading(true)
+
+      try {
+        const res = await fetch(`${BASE_URL}/auth/register`,{
+          method: 'post',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        })
+        const {message} = await res.json()
+        if (!res.ok) {
+          throw new Error(message)
+        }
+
+        setLoading(false)
+        toast.success(message)
+        navigate('/connexion')
+      } catch (err) {
+        toast.error(err.message)
+        setLoading(false)
+      }
     }
   return (
    <section className='px-5 xl:px-0'>
@@ -35,8 +66,8 @@ const Register = () => {
               <input 
               type="text" 
               placeholder='Nom complet' 
-              name='fullname' 
-              value={formData.fullname}
+              name='name' 
+              value={formData.name}
               onChange={handleInputChange}
               className="w-full pr-4 py-3 border-b border-solid border-[#0066ff61] focus:outline-none 
               focus:border-b-primaryColor text-[16px] leding-7 text-headingColor
@@ -74,8 +105,9 @@ const Register = () => {
             </div>
 
             <div className='mt-7'>
-              <button type='submit' className='w-full bg-primaryColor text-white text-[18px] leading-[30px] rounded-lg px-4 py-3'>
-                créer mon compte
+              <button disabled={loading && true}
+              type='submit' className='w-full bg-primaryColor text-white text-[18px] leading-[30px] rounded-lg px-4 py-3'>
+                {loading ? (<HashLoader size={35} color="#FFFFFF"/>) :('créer mon compte')}
               </button>
             </div>
             <p className='mt-5 text-textColor text-center'>

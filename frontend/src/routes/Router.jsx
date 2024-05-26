@@ -8,9 +8,11 @@ import Register from '../pages/Register';
 import Tips from '../pages/Tips';
 import WordFromExperts from '../pages/WordFromExperts';
 import Users from '../pages/Users/Users';
-import UsersDetails from '../pages/Users/UsersDetails';
 
+import MyAccount from '../Dashboard/user-account/MyAccount'
 import { Routes, Route } from "react-router-dom";
+
+import  ProtectedRoute  from "./ProtectedRoute";
 
 export const Router = () => {
   return <Routes>
@@ -24,7 +26,8 @@ export const Router = () => {
     <Route path='/astuces' element={<Tips/>} />
     <Route path='/motsDesExperts' element={<WordFromExperts/>} />
     <Route path='/users' element={<Users/>} />
-    <Route path='/users/:id' element={<UsersDetails/>} />
+    <Route path='/user/profile/me' element={<ProtectedRoute allowedRoles={["player"]} ><MyAccount /></ProtectedRoute>} />
+    {/* <Route path='/user/profile/me' element={<MyAccount />} /> */}
   </Routes>
 }
 export default Router;

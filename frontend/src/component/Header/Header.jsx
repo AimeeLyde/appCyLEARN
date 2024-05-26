@@ -1,8 +1,9 @@
-import {useEffect, useRef} from 'react'
+import {useEffect, useRef, useContext} from 'react'
 import logo from "../../assets/images/logo-cylearn.png";
 import { NavLink, Link } from 'react-router-dom';
 import userImg from '../../assets/images/avatar-icon.png'
 import {BiMenu} from "react-icons/bi"
+import { authContext } from "../../context/AuthContext.jsx";
 const navLinks =[
   {
     path:'/accueil',
@@ -33,6 +34,7 @@ const navLinks =[
 const Header = () => {
   const headerRef = useRef(null)
   const menuRef = useRef(null)
+  const {user, role, token} = useContext(authContext)
   const handleStickyHeader = ()=>{
     window.addEventListener('scroll', ()=>{
       if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
@@ -74,20 +76,27 @@ const toggleMenu =()=> menuRef.current.classList.toggle('show__menu')
             </ul>
           </div>
           {/* Nav Right */}
+
+
           <div className="flex items-center gap-4">
-            <div className='hidden'>
-              <Link to ="/">
-              <figure className='w-[25px] h-[25px] rounded-full cursor-pointer'>
-                <img src={userImg} ClassName="w-full rounded-full" alt="" />
-              </figure>
-              </Link>
-            </div>
-            <Link to ="/connexion">
+            {
+
+              token && user ? (<div>
+              <h2>{user?.role}</h2>
+              <Link to={`${role==='player' ? "/user/profile/me":"/admin/profile/me" }`}></Link>
+              
+            </div>) :  (<Link to ="/connexion">
             <button className='bg-primaryColor py-2 px-6 text-white font-[600] h-[33px] flex items-center  
             justify-center rounded-[40px]'>
-                  Connexion
+                  Connexion 
             </button>
+            
             </Link>
+
+            )}
+            
+            
+          
             <span className='md:hidden'onClick={toggleMenu}>
               <BiMenu className='w-6 h-6 cursor-pointer' />
             </span>

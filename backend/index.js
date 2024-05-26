@@ -10,7 +10,10 @@ import userRoute from "./Routes/user.js"
 import coursRoute from "./Routes/cours.js"
 import quizRoute from "./Routes/quiz.js"
 import answerRoute from "./Routes/answer.js"
-
+import glossaireRoute from "./Routes/glossaire.js"
+import actualitesRoute from "./Routes/actualites.js"
+import bonnesPratiquesRoute from "./Routes/bonnesPratiques.js"
+import motsDesExpertsRoute from "./Routes/motsDesExperts.js"
 dotenv.config()
 
 const app = express()
@@ -43,10 +46,14 @@ app.use(cookieParser());
 app.use(cors(corsOptions));
 app.use('/api/v1/auth', authRoute) 
 app.use('/api/v1/users', userRoute) 
-app.use('/api/v1/cours', coursRoute) 
-// app.use('/api/v1/cours/{coursId}/quizzes', coursRoute) 
+app.use('/api/v1/cours', coursRoute)  
 app.use('/api/v1/quiz', quizRoute)
 app.use('/api/v1/quiz', answerRoute)
+app.use('/api/v1/glossaire', glossaireRoute)
+app.use('/api/v1/actualites', actualitesRoute)
+app.use('/api/v1/bonnesPratiques', bonnesPratiquesRoute)
+app.use('/api/v1/motsDesExperts', motsDesExpertsRoute)
+
  
 
 app.listen(port,()=>{
