@@ -9,7 +9,7 @@ const coursSchema = new mongoose.Schema({
         required: true },
     niveau:{ 
         type: String,
-        enum: ['facile', 'moyen', 'difficile'],
+        enum: ['Débutant','Intermédiaire','Avancé'],
         required: true, }
 });
 export default mongoose.model("Cours", coursSchema);

@@ -82,8 +82,11 @@ const toggleMenu =()=> menuRef.current.classList.toggle('show__menu')
             {
 
               token && user ? (<div>
-              <h2>{user?.role}</h2>
-              <Link to={`${role==='player' ? "/user/profile/me":"/admin/profile/me" }`}></Link>
+              
+              <Link to={`${role==='player' ? "/user/profile/me":"/admin/profile/me" }`}><button className='bg-primaryColor py-2 px-6 text-white font-[600] h-[33px] flex items-center  
+            justify-center rounded-[40px]'>
+                  Mon compte 
+            </button></Link>
               
             </div>) :  (<Link to ="/connexion">
             <button className='bg-primaryColor py-2 px-6 text-white font-[600] h-[33px] flex items-center  

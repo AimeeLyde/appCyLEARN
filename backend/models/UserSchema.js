@@ -12,7 +12,12 @@ const UserSchema = new mongoose.Schema({
   exp: {
     type: Number,
     default: 0,
-  }
+  },
+  finishedCourses: {
+    type: [mongoose.Schema.Types.ObjectId],
+    ref: 'Cours',
+    default: []
+  },
 });
 
 export default mongoose.model("User", UserSchema);

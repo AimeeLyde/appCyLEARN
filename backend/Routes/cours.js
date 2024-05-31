@@ -1,8 +1,8 @@
 import express from "express"
-import { getAllCourses } from "../Controllers/coursController.js"
+import { getAllCourses,finishCourse } from "../Controllers/coursController.js"
 
 const router = express.Router();
 router.get("/", getAllCourses);
-// router.get("/:coursId/quizzes", getQuizzesByCourse);
+router.post("/finishCourse", finishCourse);
 
 export default router;

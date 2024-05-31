@@ -3,6 +3,29 @@ import { Link } from 'react-router-dom';
 import { BsArrowRight } from "react-icons/bs"
 import icnO1 from '../assets/images/icon01.png'
 import imgBpract from '../assets/images/img_practices.jpeg'
+
+const practices = [
+  "Utilisez des mots de passe forts et uniques pour chaque compte.",
+  "Activez l'authentification à deux facteurs (2FA) lorsque c'est possible.",
+  "Soyez vigilant face aux e-mails de phishing et ne cliquez pas sur des liens suspects.",
+  "Mettez à jour régulièrement vos logiciels et systèmes d'exploitation.",
+  "Utilisez un logiciel antivirus et maintenez-le à jour.",
+  "Ne partagez pas d'informations personnelles sensibles sur les réseaux sociaux.",
+  "Sauvegardez régulièrement vos données importantes.",
+  "Utilisez un VPN lorsque vous vous connectez à des réseaux Wi-Fi publics.",
+  "Verrouillez votre ordinateur lorsque vous vous absentez.",
+  "Soyez prudent lorsque vous téléchargez des fichiers ou des applications.",
+  "Limitez les permissions des applications sur vos appareils.",
+  "Sécurisez votre réseau Wi-Fi domestique avec un mot de passe fort.",
+  "Déconnectez les appareils non utilisés du réseau.",
+  "Utilisez un gestionnaire de mots de passe pour gérer vos mots de passe.",
+  "Surveillez vos comptes bancaires et financiers pour détecter toute activité suspecte.",
+  "Évitez d'utiliser des clés USB non vérifiées.",
+  "Apprenez à reconnaître les signes de compromission de votre appareil.",
+  "Utilisez des outils de chiffrement pour protéger vos données sensibles.",
+  "Éduquez-vous continuellement sur les nouvelles menaces et les meilleures pratiques en cybersécurité.",
+  "Faites attention aux liens abrégés, car ils peuvent cacher des destinations dangereuses.",
+];
 const BestPractices = () => {
   return (
    <>
@@ -11,61 +34,19 @@ const BestPractices = () => {
    </div>
    <section>
       <div className='container'>
-        <div className='lg:w-[470px] mx-auto'>
-          <h2 className='heading text-center'>Viens apprendre la CyberSécurité en s'amusant</h2>
-          <p className='text__para text-center'>Quisque sit amet sapien pellentesque, consectetur nisi et, porttitor diam. Proin in malesuada enim, sed tincidunt magna. </p>
+      <section className="bg-gray-50 py-16">
+      <div className="container mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-12">20 Bonnes Pratiques en Cybersécurité</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {practices.map((practice, index) => (
+            <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="text-xl font-semibold mb-2"> {index + 1}</h3>
+              <p className="text-lg text-gray-800">{practice}</p>
+            </div>
+          ))}
         </div>
-
-        <div className="grid grid-cols_1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-[30px] mt-[30px] lg:mt-[55px]">
-          <div className="py-[30px] px-5">
-            <div className='flex items-center justify-center'>
-              <img src={icnO1} alt=""/>
-            </div>
-
-            <div className="mt-[30px]">
-              <h2 className='text-[26px] leading-9 text-headingColor font-[700] text-center'>Cliquez pour en savoir plus</h2>
-              <p className="text-[16px] leading-7 text-textColor font-[400] mt-4 text-center">
-                Quisque sit amet sapien pellentesque, consectetur nisi et, porttitor diam.
-              </p>
-              <Link to='/bonnesPratiques' className='w-[44px] h-[44px] rounded-full border border-solid border-[#181A1E] mt-[30px] mx-auto 
-              flex items-center justify-center group hover:bg-primaryColor hover:border-none '>
-                <BsArrowRight className="group-hover:text-white w-6 h-5"/>
-              </Link>
-            </div>
-          </div>
-
-          <div className="py-[30px] px-5">
-            <div className='flex items-center justify-center'>
-              <img src={icnO1} alt=""/>
-            </div>
-
-            <div className="mt-[30px]">
-              <h2 className='text-[26px] leading-9 text-headingColor font-[700] text-center'>Cliquez pour en savoir plus</h2>
-              <p className="text-[16px] leading-7 text-textColor font-[400] mt-4 text-center">
-                Quisque sit amet sapien pellentesque, consectetur nisi et, porttitor diam.
-              </p>
-              <Link to='/astuces' className='w-[44px] h-[44px] rounded-full border border-solid border-[#181A1E] mt-[30px] mx-auto 
-              flex items-center justify-center group hover:bg-primaryColor hover:border-none '>
-                <BsArrowRight className="group-hover:text-white w-6 h-5"/>
-              </Link>
-            </div>
-          </div>
-          <div className="py-[30px] px-5">
-            <div className='flex items-center justify-center'>
-              <img src={icnO1} alt=""/>
-            </div>
-            <div className="mt-[30px]">
-              <h2 className='text-[26px] leading-9 text-headingColor font-[700] text-center'>Cliquez pour en savoir plus</h2>
-              <p className="text-[16px] leading-7 text-textColor font-[400] mt-4 text-center">
-                Quisque sit amet sapien pellentesque, consectetur nisi et, porttitor diam.
-              </p>
-              <Link to='/astuces' className='w-[44px] h-[44px] rounded-full border border-solid border-[#181A1E] mt-[30px] mx-auto 
-              flex items-center justify-center group hover:bg-primaryColor hover:border-none '>
-                <BsArrowRight className="group-hover:text-white w-6 h-5"/>
-              </Link>
-            </div>
-          </div>
-        </div>  
+      </div>
+    </section>
       </div>
     </section>
    </>

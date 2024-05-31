@@ -1,116 +1,67 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import logo from '../../assets/images/logo.png'
-import {RiLinkedinFill} from 'react-icons/ri'
-import {AiFillYoutube, AiFillGithub, AiOutlineInstagram} from 'react-icons/ai'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import logo from "../../assets/images/logo-cylearn.png";
+import { RiLinkedinFill } from 'react-icons/ri';
+import { AiFillYoutube, AiFillGithub, AiOutlineInstagram } from 'react-icons/ai';
 
-const socialLinks = [
+const navLinks = [
   {
-    path: " ",
-    icon: <AiFillYoutube className='group-hover:text-white w-4 h-5' />
+    path: '/accueil',
+    display: 'Accueil'
   },
   {
-    path: " ",
-    icon: <AiFillGithub className='group-hover:text-white w-4 h-5' />
+    path: '/actualites',
+    display: 'Actualités'
   },
   {
-    path: " ",
-    icon: <AiOutlineInstagram className='group-hover:text-white w-4 h-5' />
+    path: '/glossaire',
+    display: 'Glossaire'
   },
+  {
+    path: '/astuces',
+    display: 'Astuces'
+  },
+  {
+    path: '/motsDesExperts',
+    display: 'Mot des Experts'
+  },
+  {
+    path: '/bonnesPratiques',
+    display: 'Bonnes Pratiques'
+  }
 ];
-const quickLinks01 =[
-  {
-    path: "/",
-    display: "Mettre un lien"
-  },
-  {
-    path: "/",
-    display: "Mettre un lien"
-  },
-  {
-    path: "/",
-    display: "Mettre un lien"
-  },
 
-];
-const quickLinks02 =[
-  {
-    path: "/",
-    display: "Mettre un lien"
-  },
-  {
-    path: "/",
-    display: "Mettre un lien"
-  },
-  {
-    path: "/",
-    display: "Mettre un lien"
-  },
-
-];
-const quickLinks03 =[
-  {
-    path: "/",
-    display: "Mettre un lien"
-  },
-  {
-    path: "/",
-    display: "Mettre un lien"
-  },
-  {
-    path: "/",
-    display: "Mettre un lien"
-  },
-
-];
 const Footer = () => {
-  const year = new Date().getFullYear()
+  const year = new Date().getFullYear();
   return (
-    <footer className='pb-16 pt-10' >
+    <footer className='pb-16 pt-10'>
       <div className="container">
         <div className='flex justify-between flex-col md:flex-row flex-wrap gap-[30px]'>
           <div>
-            <img src={logo} alt="" />
-            <p className='text-[16px] leading-7 font-[]'>{year}</p>
-            <div className='flex items-center gap-3 mt-4'>
-              {socialLinks.map((link, index)=>(
-                <Link 
-                to={link.path} 
-                key={index}
-                className='w-9 h-9 border boerder-solid border-[#181A1E] rounded-full flex items-center 
-                justify-center group hover:bg-primaryColor hover:border-none'
-                >{link.icon} </Link>
-              ))}
-            </div>
+            <img src={logo} alt="CY Learn Logo" />
           </div>
-          <div>
-              <h2 className='text-[20px] leading-[30px] font-[700] mb-6 text-headingColor'>
-                Liens rapides
-              </h2>
-              <ul>
-                {quickLinks01.map((item, index)=> (<li key={index} className='mb-4'><Link className='text-[16px] leading-7 font-[400] text-textColor' to={item.path}>{item.display} </Link></li>))}
-              </ul>
+          <div className='flex flex-col md:flex-row md:justify-between w-full md:w-auto gap-10'>
+            {navLinks.map((link, index) => (
+              <div key={index}>
+               
+                <ul>
+                  <li className='mb-4'>
+                    <Link className='text-[16px] leading-7 font-[400] text-textColor' to={link.path}>
+                      {link.display}
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            ))}
           </div>
-          <div>
-              <h2 className='text-[20px] leading-[30px] font-[700] mb-6 text-headingColor'>
-                Liens rapides
-              </h2>
-              <ul>
-                {quickLinks02.map((item, index)=> (<li key={index} className='mb-4'><Link className='text-[16px] leading-7 font-[400] text-textColor' to={item.path}>{item.display} </Link></li>))}
-              </ul>
-          </div>
-          <div>
-              <h2 className='text-[20px] leading-[30px] font-[700] mb-6 text-headingColor'>
-                Liens rapides
-              </h2>
-              <ul>
-                {quickLinks03.map((item, index)=> (<li key={index} className='mb-4'><Link className='text-[16px] leading-7 font-[400] text-textColor' to={item.path}>{item.display} </Link></li>))}
-              </ul>
-          </div>
+          
+        </div>
+        <div className="text-center mt-8 text-textColor">
+          © {year} CY Learn. Tous droits réservés.
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
 export default Footer;

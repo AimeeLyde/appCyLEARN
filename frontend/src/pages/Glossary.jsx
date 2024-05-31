@@ -1,6 +1,6 @@
 import React from 'react'
 import GlossaireList from '../component/GlossaireWord/GlossaireList'
-import imgGlossaire from '../assets/images/img_glossaire.jpeg'
+import imgGlossaire from '../assets/images/glossary.jpg'
 const Glossary = () => {
   return (
     <>
